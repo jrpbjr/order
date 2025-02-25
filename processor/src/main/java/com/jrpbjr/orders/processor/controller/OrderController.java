@@ -1,5 +1,9 @@
 package com.jrpbjr.orders.processor.controller;
 
+import com.jrpbjr.orders.processor.controller.dto.ApiResponse;
+import com.jrpbjr.orders.processor.controller.dto.OrderResponse;
+import com.jrpbjr.orders.processor.controller.dto.PaginationResponse;
+import com.jrpbjr.orders.processor.service.OrderService;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
