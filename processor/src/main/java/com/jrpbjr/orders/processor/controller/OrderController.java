@@ -5,11 +5,6 @@ import com.jrpbjr.orders.processor.controller.dto.OrderResponse;
 import com.jrpbjr.orders.processor.controller.dto.PaginationResponse;
 import com.jrpbjr.orders.processor.service.OrderService;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
-
-
 
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
