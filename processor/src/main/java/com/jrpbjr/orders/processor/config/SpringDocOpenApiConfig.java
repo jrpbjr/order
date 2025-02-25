@@ -1,4 +1,4 @@
-package com.jrpbjr.order.api.config;
+package com.jrpbjr.orders.processor.config;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;
@@ -15,11 +15,12 @@ public class SpringDocOpenApiConfig {
         return new OpenAPI()
                 .info(
                         new Info()
-                                .title("Rest API - Pedidos")
-                                .description("API para realização de pedidos")
+                                .title("Rest API - Pedidos Processado")
+                                .description("API para verificaçao de pedidos")
                                 .version("v1.0.0")
                                 .license(new License().name("Apache 2.0").url("https://www.apache.org/licenses/LICENSE-2.0"))
                                 .contact(new Contact().name("Jose Roberto").email("jrpbjr@gmail.com"))
                 );
     }
 }
+
