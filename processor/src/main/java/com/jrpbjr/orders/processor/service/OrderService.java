@@ -15,10 +15,17 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
 import static org.springframework.data.mongodb.core.aggregation.Aggregation.*;
 
 @Service
 public class OrderService {
+
+    private static final Logger logger = LoggerFactory.getLogger(OrderService.class);
+
 
     private final OrderRepository orderRepository;
     private final MongoTemplate mongoTemplate;
@@ -30,7 +37,14 @@ public class OrderService {
     }
 
     public void save(OrderCreatedEvent event) {
+        // Verifica se o orderId já existe no banco
+        if (orderRepository.existsById(event.orderId())) {
+            // Registrar no log e descartar o evento
+            logger.info("Order with ID {} already exists. Event will be discarded.", event.orderId());
+            return;
+        }
 
+        // Se não existir, processa e salva o pedido
         var entity = new OrderEntity();
 
         entity.setOrderId(event.orderId());
@@ -39,8 +53,9 @@ public class OrderService {
         entity.setTotal(getTotal(event));
 
         orderRepository.save(entity);
-
+        logger.info("Order with ID {} has been successfully saved.", event.orderId());
     }
+
 
     public Page<OrderResponse> findAllByCustomerId(Long customerId, PageRequest pageRequest) {
         var orders = orderRepository.findAllByCustomerId(customerId, pageRequest);
