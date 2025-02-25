@@ -39,7 +39,6 @@ public class OrderService {
     public void save(OrderCreatedEvent event) {
         // Verifica se o orderId já existe no banco
         if (orderRepository.existsById(event.orderId())) {
-            // Registrar no log e descartar o evento
             logger.info("Order with ID {} already exists. Event will be discarded.", event.orderId());
             return;
         }
