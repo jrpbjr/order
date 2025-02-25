@@ -19,7 +19,7 @@ public class SpringDocOpenApiConfig {
                                 .description("API para realização de pedidos")
                                 .version("v1.0.0")
                                 .license(new License().name("Apache 2.0").url("https://www.apache.org/licenses/LICENSE-2.0"))
-                                .contact(new Contact().name("Wendel Segadilha").email("wendelsegadilha99@gmail.com"))
+                                .contact(new Contact().name("Jose Roberto").email("jrpbjr@gmail.com"))
                 );
     }
 }
